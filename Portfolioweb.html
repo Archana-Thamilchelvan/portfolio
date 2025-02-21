@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archana's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+            const navLinks = document.querySelectorAll("nav ul li a");
+            
+            function showSection(id) {
+                sections.forEach(section => {
+                    if (section.id === id) {
+                        section.classList.remove("hidden");
+                    } else {
+                        section.classList.add("hidden");
+                    }
+                });
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute("href").substring(1);
+                    showSection(targetId);
+                });
+            });
+        });
+
+        function toggleContent(id) {
+            const element = document.getElementById(id);
+            element.classList.toggle("hidden");
+        }
+    </script>
+    <style>
+        body {
+            width: 100%;
+            background-image: url(https://wallup.net/wp-content/uploads/2015/12/118785-nature-landscape-night-trees-water-moon-stars-sea-mist.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 109vh;
+        }
+        nav {
+            background: transparent;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: orange;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold; /* BOLD NAV LINKS */
+        }
+        .section {
+            text-align: center;
+            padding: 50px 20px;
+            text-decoration: none;
+            color: whitesmoke;
+            font-family: Arial;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        .form {
+            width: 250px;
+            height: 340px;
+            background: rgba(8, 8, 8, 0.8);
+            position: absolute;
+            top: 250px;
+            right: 600px;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+        }
+        .form h2 {
+            font-family: sans-serif;
+            color: #ff7200;
+            font-size: 22px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 8px;
+        }
+        .form input {
+            width: 240px;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border: none;
+            color: #fff;
+            font-size: 15px;
+            margin-top: 30px;
+        }
+        .form input:focus {
+            outline: none;
+        }
+        ::placeholder {
+            color: aliceblue;
+            font-family: Arial;
+        }
+        .btnn {
+            width: 240px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-top: 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: aliceblue;
+            font-weight: bold; /* BUTTON BOLD */
+            transition: 0.4s ease;
+        }
+        .btnn:hover {
+            background: white;
+            color: #ff7200;
+        }
+        .btnn a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .certificate-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .certificate-card {
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 250px;
+        }
+        .certificate-card button {
+            background: orange;
+            color: rgb(78, 22, 13);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        .certificate-card button:hover {
+            background: white;
+        }
+        .icon {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .icon a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            font-size: 30px;
+        }
+        .icon a:hover {
+            color: #ff7200;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home"><b>Home</b></a></li>
+            <li><a href="#about"><b>About</b></a></li>
+            <li><a href="#certificates"><b>Certificates</b></a></li>
+            <li><a href="#contact"><b>Contact</b></a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="section">
+        <h1><b>Hi, I'm Archana!</b></h1><br>
+        <h3><i>An aspiring Electronics and Communication Engineer passionate about Embedded systems, VLSI, semiconductors, avionics.
+            Currently exploring Arduino projects and networking concepts, bridging the gap between theory and real-world applications.
+            I aim to work in a leading tech company designing innovative solutions in embedded systems.</i></h3>
+    </section>
+
+    <section id="about" class="section hidden">
+        <h1><b>About Me</b></h1>
+        <h3>I'm a second-year ECE student with an interest in embedded systems, VLSI, semiconductors, and avionics.
+            I enjoy learning how electronics shapes the modern world and aspire to work in a field that blends innovation with real-world applications.</h3>
+        <button class="btnn" onclick="toggleContent('skills')">Skills</button>
+        <div id="skills" class="hidden">
+            <ul>
+                <li>C++</li>
+                <li>Java</li>
+                <li>Database Management</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Python</li>
+                <li>Application Development Practices</li>
+            </ul>
+        </div>
+        <button class="btnn" onclick="toggleContent('education')">Education</button>
+        <div id="education" class="hidden">
+            <p><b>College:</b> Sri Krishna College of Engineering and Technology, Coimbatore.</p>
+            <p><b>Schooling:</b> Neelan Matriculation Higher Secondary School, Nidamangalam.</p>
+        </div>
+    </section>
+
+    <section id="certificates" class="section hidden">
+        <h2>Certificates</h2>
+        <div class="certificate-container">
+            <div class="certificate-card">
+                <h3>Introduction to IoT</h3>
+                <p>Issued by: Cisco</p>
+                <button onclick="window.open('https://drive.google.com/file/d/1V43oMEFvF_Q8zuO8sjBZjStegRIjWMko/view?usp=sharing')">View Certificate</button>
+            </div>
+            <div class="certificate-card">
+                <h3>Introduction to Cybersecurity</h3>
+                <p>Issued by: Cisco</p>
+                <button onclick="window.open('https://drive.google.com/file/d/1rC7qMBRi5vYsJ_I0YWiH1ZB5KxpGegoL/view?usp=sharing')">View Certificate</button>
+            </div>
+            <div class="certificate-card">
+                <h3>HAL Internship</h3>
+                <p>Issued by: HAL</p>
+                <p>Duration: 1 Month</p>
+                <button onclick="window.open('https://drive.google.com/file/d/1ZG5XzQHNzW_SWUrIVIL8BMAn4gAYY-t5/view?usp=sharing')">View Certificate</button>
+            </div>
+            <div class="certificate-card">
+                <h3>Symposium</h3>
+                <p>Issued by: SIMATS Engineering</p>
+                <button onclick="window.open('https://drive.google.com/file/d/14YZiakfBNdGNJ7VGO9Q4npB6gARWX9BK/view?usp=sharing')">View Certificate</button>
+            </div>
+            <div class="certificate-card">
+                <h3>Wiring Harness Design</h3>
+                <p>Issued by: Workshop</p>
+                <button onclick="window.open('https://drive.google.com/file/d/1kZugGwrWjQyDucsc9co8UxsuJt0EJu_Z/view?usp=sharing')">View Certificate</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section hidden">
+        <div class="form">
+            <h2>Say Hi!</h2>
+            <h6>Feel Free to Text Me</h6>
+            <input type="text" name="Name" placeholder="Enter your name here">
+            <input type="email" name="email" placeholder="Enter your Email here">
+            <input type="message" name="message" p .laceholder="Text here">
+            <button class="btnn"><a href="#">Submit</a></button>
+        </div>
+        <div class="icon">
+            <h2>Contact</h2>
+            <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+        </div>
+    </section>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
